@@ -1,4 +1,6 @@
 <script>
+import { points } from './store/index.js';
+
 import Header from './containers/Header.svelte';
 import Board from './containers/Board.svelte';
 import Aside from './containers/Aside.svelte';
@@ -12,6 +14,8 @@ const handleAddShape = (shape) => {
 		...shapes,
 		shape,
 	]
+
+  points.update(point => point - shape.cost);
 };
 </script>
 

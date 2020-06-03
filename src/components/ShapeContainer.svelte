@@ -2,6 +2,7 @@
 import { onMount } from 'svelte';
 
 export let speed = 1;
+export let onAddPoints;
 
 const OPTIONS = [1, -1]
 
@@ -31,7 +32,9 @@ onMount(() => {
 
     left += speed * leftMulti;
     top += speed * topMulti;
-  }, 1);
+  }, 10);
+
+  setInterval(onAddPoints, 5000);
 });
 
 </script>
@@ -44,6 +47,7 @@ onMount(() => {
 
 <div id="ShapeContainer" class="ShapeContainer">
   <div 
+    on:click={onAddPoints}
     style={`
       top: ${top}px;
       left: ${left}px;
