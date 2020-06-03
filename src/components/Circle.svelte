@@ -12,6 +12,6 @@ export let color;
 
 <div style={`
   background-color: ${color}
-`} class="Circle">
+`} class="Circle shape-figure">
 
 </div>

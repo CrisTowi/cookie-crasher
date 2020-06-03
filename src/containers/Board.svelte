@@ -1,7 +1,5 @@
 <script>
-import ShapeContainer from '../components/ShapeContainer.svelte';
-import Square from '../components/Square.svelte';
-import Circle from '../components/Circle.svelte';
+import Shape from '../components/Shape.svelte';
 
 export let shapes;
 </script>
@@ -18,16 +16,7 @@ export let shapes;
 <div class="Board">
   <div id="Board-container" class="Board-container">
     {#each shapes as shape}
-      {#if shape.shape === 'square'}
-        <ShapeContainer>
-          <Square {...shape} />
-        </ShapeContainer>
-      {/if}
-      {#if shape.shape === 'circle'}
-        <ShapeContainer>
-          <Circle {...shape} />
-        </ShapeContainer>
-      {/if}
+      <Shape shape={shape} />
     {/each}
   </div>
 </div>

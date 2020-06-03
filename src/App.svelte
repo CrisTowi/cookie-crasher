@@ -13,8 +13,13 @@ const handleAddShape = (shape) => {
 		shape,
 	]
 };
-
 </script>
+
+<style>
+:global(.shape-figure) {
+	cursor: pointer;
+}
+</style>
 
 <main>
 	<Header />
@@ -23,7 +28,3 @@ const handleAddShape = (shape) => {
 		<Aside shapeDict={shapeDict} onAddShape={handleAddShape} />
 	</div>
 </main>
-
-<style>
-
-</style>

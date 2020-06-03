@@ -1,10 +1,17 @@
 export const shapeDict = [
   {
-    shape: 'square',
-    color: 'red'
+    shape: 'circle',
+    color: 'blue',
+    speed: 1,
   },
   {
-    shape: 'circle',
-    color: 'blue'
+    shape: 'triangle',
+    color: 'green',
+    speed: 2,
+  },
+  {
+    shape: 'square',
+    color: 'red',
+    speed: 3,
   },
 ];

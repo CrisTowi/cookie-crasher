@@ -1,6 +1,8 @@
 <script>
 import { onMount } from 'svelte';
 
+export let speed = 1;
+
 const OPTIONS = [1, -1]
 
 const shapeContainerDiv = document.getElementById('Board-container');
@@ -27,8 +29,8 @@ onMount(() => {
       topMulti = 1;
     }
 
-    left += 1 * leftMulti;
-    top += 1 * topMulti;
+    left += speed * leftMulti;
+    top += speed * topMulti;
   }, 1);
 });
 

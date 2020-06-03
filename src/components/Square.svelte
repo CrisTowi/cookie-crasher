@@ -6,12 +6,11 @@ export let color;
 .Square {
   width: 100px;
   height: 100px;
-  background-color: red;
 }
 </style>
 
 <div style={`
   background-color: ${color}
-`} class="Square">
+`} class="Square shape-figure">
 
 </div>
