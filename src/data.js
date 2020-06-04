@@ -18,6 +18,6 @@ export const shapeDict = [
     color: 'red',
     speed: 3,
     pointsRate: 3,
-    cost: 30,
+    cost: 20,
   },
 ];

@@ -1,5 +1,5 @@
 <script>
-import Shape from '../components/Shape.svelte';
+import Shape from './Shape.svelte';
 
 export let shapes;
 </script>

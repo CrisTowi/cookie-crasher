@@ -1,15 +1,17 @@
 <script>
-import { points } from '../store/index.js';
+import { points, started } from '../store/index.js';
 
-import ShapeContainer from './ShapeContainer.svelte';
-import Circle from './Circle.svelte';
-import Square from './Square.svelte';
-import Triangle from './Triangle.svelte';
+import ShapeContainer from '../components/ShapeContainer.svelte';
+import Circle from '../components/Circle.svelte';
+import Square from '../components/Square.svelte';
+import Triangle from '../components/Triangle.svelte';
 
 export let shape;
 
 const handleAddPoints = () => {
-  points.update(point => point + shape.pointsRate);
+  if ($started) {
+    points.update(point => point + shape.pointsRate);
+  }
 };
 
 </script>
