@@ -2,7 +2,6 @@
 import { points, started, time, finalPoints } from '../store';
 
 export let onAddShape;
-export let onStart;
 export let shapeDict;
 </script>
 
@@ -38,12 +37,6 @@ export let shapeDict;
 .aside-button.square {
   border: 2px solid #3D7BA0;
   color: #3D7BA0;
-}
-
-.aside-button.start-game {
-  width: 100%;
-  border: 2px solid black;
-  color: black;
 }
 
 .aside-button:disabled,.aside-button[disabled] {
@@ -96,11 +89,10 @@ export let shapeDict;
     {/each}
   </div>
 
-  <button class="aside-button start-game" disabled={$started} on:click={onStart}>Start game</button>
   {#if $finalPoints !== 0}
     <div class="Aside-count">
       <div class="Aside-count-label">
-        Game over!
+        Game Over
       </div>
       <div class="Aside-count-amount">
         {$finalPoints}

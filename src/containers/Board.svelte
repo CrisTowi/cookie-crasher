@@ -1,7 +1,6 @@
 <script>
+import { shapes } from '../store';
 import Shape from './Shape.svelte';
-
-export let shapes;
 </script>
 
 <style>
@@ -19,7 +18,7 @@ export let shapes;
 
 <div class="Board">
   <div id="Board-container" class="Board-container">
-    {#each shapes as shape}
+    {#each $shapes as shape}
       <Shape shape={shape} />
     {/each}
   </div>

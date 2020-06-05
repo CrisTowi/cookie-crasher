@@ -1,29 +1,27 @@
 <script>
 import { onMount } from 'svelte';
-import { points, started, time, finalPoints } from './store/index.js';
+import { points, started, time, finalPoints, shapes } from './store/index.js';
 
 import Header from './containers/Header.svelte';
 import Board from './containers/Board.svelte';
 import Aside from './containers/Aside.svelte';
+import Modal from './containers/Modal.svelte';
+
+import Intro from './components/Intro.svelte';
 
 import { shapeDict } from './data';
 
-let shapes = [];
-
-const handleAddShape = (shape) => {
-	shapes = [
-		...shapes,
-		shape,
-	]
-
-  points.update(point => point - shape.cost);
+const handleAddShape = (newShape) => {
+	shapes.update(s => [...s, newShape]);
+  points.update(p => p - newShape.cost);
 };
 
 const handleStart = () => {
-  points.update(() => 7);
+  points.update(() => 0);
   started.update(() => true);
-	time.update(() => 10);
+	time.update(() => 30);
 	finalPoints.update(() => 0);
+	shapes.update(() => [shapeDict[0]]);
 
 	const timerInterval = setInterval(handleTimer, 1000);
 
@@ -33,7 +31,8 @@ const handleStart = () => {
 		if ($time === 0) {
 			clearInterval(timerInterval);
 			started.update(() => false);
-			finalPoints.update(() => $points)
+			finalPoints.update(() => $points);
+			shapes.update(() => []);
 		}
 	};
 }
@@ -65,10 +64,13 @@ const handleStart = () => {
 	<Header />
 	<div class="Main-container">
 		<div class="Main-Board-container">
-			<Board shapes={shapes} />
+			<Board />
 		</div>
 		<div class="Main-Aside-container">
-			<Aside onStart={handleStart} shapeDict={shapeDict} onAddShape={handleAddShape} />
+			<Aside shapeDict={shapeDict} onAddShape={handleAddShape} />
 		</div>
 	</div>
+	<Modal visible={!$started} >
+		<Intro onStart={handleStart} />
+	</Modal>
 </main>

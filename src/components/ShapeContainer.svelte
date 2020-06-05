@@ -1,5 +1,5 @@
 <script>
-import { onMount } from 'svelte';
+import { onMount, onDestroy } from 'svelte';
 
 export let speed = 1;
 export let onAddPoints;
@@ -12,6 +12,7 @@ let top = shapeContainerDiv.clientHeight / 2;
 let topMulti = OPTIONS[Math.floor(Math.random() * 2)];
 let leftMulti = OPTIONS[Math.floor(Math.random() * 2)];
 
+let intervalID = null;
 
 onMount(() => {
   const clientHeight = shapeContainerDiv.clientHeight;
@@ -34,7 +35,11 @@ onMount(() => {
     top += speed * topMulti;
   }, 10);
 
-  setInterval(onAddPoints, 5000);
+  intervalID = setInterval(onAddPoints, 5000);
+});
+
+onDestroy(() => {
+  clearInterval(intervalID);
 });
 
 </script>
