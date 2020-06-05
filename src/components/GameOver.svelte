@@ -1,5 +1,6 @@
 <script>
 export let onStart;
+export let finalPoints;
 </script>
 
 <style>
@@ -50,10 +51,8 @@ export let onStart;
 <div class="Intro">
   <div class="Intro-container">
     <div class="Intro-content">
-      <p class="step">Welcome to Cookie Crasher!</p>
-      <p class="step">1. Click on the shaped cookies to get points</p>
-      <p class="step">2. Spend points to get more cookies to click</p>
-      <p class="step">3. Cookies generate points automatically every 5 seconds (the most you have the most points you will get)</p>
+      <p class="step">Game Over</p>
+      <p class="step">You got {finalPoints} points!</p>
       <button class="Intro-start-game" on:click={onStart}>Start game</button>
     </div>
   </div>

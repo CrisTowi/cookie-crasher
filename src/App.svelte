@@ -8,6 +8,7 @@ import Aside from './containers/Aside.svelte';
 import Modal from './containers/Modal.svelte';
 
 import Intro from './components/Intro.svelte';
+import GameOver from './components/GameOver.svelte';
 
 import { shapeDict } from './data';
 
@@ -71,6 +72,11 @@ const handleStart = () => {
 		</div>
 	</div>
 	<Modal visible={!$started} >
-		<Intro onStart={handleStart} />
+		{#if $finalPoints === 0}
+			<Intro onStart={handleStart} />
+		{/if}
+		{#if $finalPoints !== 0}
+			<GameOver finalPoints={$finalPoints} onStart={handleStart} />
+		{/if}
 	</Modal>
 </main>
