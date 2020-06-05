@@ -5,11 +5,15 @@ export let shapes;
 </script>
 
 <style>
+.Board {
+  height: inherit;
+}
+
 .Board-container {
   position: relative;
   background-color: #F3F3F3;
   width: 100%;
-  height: 500px;
+  height: 100%;
 }
 </style>
 

@@ -44,12 +44,31 @@ const handleStart = () => {
 :global(.shape-figure) {
 	cursor: pointer;
 }
+
+.Main-container {
+	margin-top: 50px;
+	display: flex;
+}
+
+.Main-Board-container {
+	width: 80%;
+	height: calc(100vh - 65px);
+}
+
+.Main-Aside-container {
+	width: 20%;
+	height: calc(100vh - 65px);
+}
 </style>
 
 <main>
 	<Header />
-	<div class="main-container">
-		<Board shapes={shapes} />
-		<Aside onStart={handleStart} shapeDict={shapeDict} onAddShape={handleAddShape} />
+	<div class="Main-container">
+		<div class="Main-Board-container">
+			<Board shapes={shapes} />
+		</div>
+		<div class="Main-Aside-container">
+			<Aside onStart={handleStart} shapeDict={shapeDict} onAddShape={handleAddShape} />
+		</div>
 	</div>
 </main>
