@@ -84,7 +84,7 @@ export let shapeDict;
         class={`aside-button ${shape.shape}`}
         disabled={$points < shape.cost || !$started}
         on:click={() => onAddShape(shape)}>
-        {`Add a ${shape.shape} cookie`}
+        {`Add a ${shape.shape} cookie (${shape.cost} points)`}
       </button>
     {/each}
   </div>

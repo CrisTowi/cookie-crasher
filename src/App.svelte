@@ -20,7 +20,7 @@ const handleAddShape = (newShape) => {
 const handleStart = () => {
   points.update(() => 0);
   started.update(() => true);
-	time.update(() => 30);
+	time.update(() => 60);
 	finalPoints.update(() => 0);
 	shapes.update(() => [shapeDict[0]]);
 
@@ -73,7 +73,7 @@ const handleStart = () => {
 	</div>
 	<Modal visible={!$started} >
 		{#if $finalPoints === 0}
-			<Intro onStart={handleStart} />
+			<Intro shapeDict={shapeDict} onStart={handleStart} />
 		{/if}
 		{#if $finalPoints !== 0}
 			<GameOver finalPoints={$finalPoints} onStart={handleStart} />
